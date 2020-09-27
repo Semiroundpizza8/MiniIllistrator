@@ -4,7 +4,7 @@ import {
     paletteColorNodes
 } from './page';
 
-export const pullRandom = arr => arr[Math.floor(Math.random() * (arr.length - 1))]
+export const pullRandom = arr => arr[Math.floor(Math.random() * (arr.length))]
 
 export let palette = pullRandom(palettes);
 export const getRandomColor = () => pullRandom(palette);
