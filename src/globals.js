@@ -1,18 +1,20 @@
 import palettes from 'nice-color-palettes';
 import Canvas from './Canvas';
+import {
+    paletteColorNodes
+} from './page';
 
-const pullRandom = arr => arr[Math.floor(Math.random() * (arr.length - 1))]
+export const pullRandom = arr => arr[Math.floor(Math.random() * (arr.length - 1))]
 
-const palette = pullRandom(palettes)
-const getRandomColor = () => pullRandom(palette);
+export let palette = pullRandom(palettes);
+export const getRandomColor = () => pullRandom(palette);
+export const newPalette = () => {
+    palette = pullRandom(palettes);
+    for(let i =0; i<paletteColorNodes.length; i++) {
+        paletteColorNodes[i].style.background = palette[i];
+    }    
+} 
+newPalette();
 
-const canvas = new Canvas("canvas");
-const context = canvas.context;
-
-
-export {
-    canvas,
-    context,
-    palette,
-    getRandomColor
-}
+export const canvas = new Canvas("canvas");
+export const context = canvas.context;

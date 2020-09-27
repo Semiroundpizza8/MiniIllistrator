@@ -15,3 +15,18 @@ h1 {
 canvas {
   border: 5px solid black;
 }
+
+#paletteOptions p {
+  margin-bottom: 0px;
+}
+
+#paletteColors {
+  display: flex;
+  flex-direction: row;
+}
+
+#paletteColors span {
+  flex: 1;
+  height: 30px;
+  background: gray;
+}

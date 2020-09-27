@@ -1,4 +1,5 @@
 class Canvas {
+
     constructor(id) {
         this.canvas = document.getElementById(id);
         this.context = this.canvas.getContext('2d');
@@ -33,7 +34,14 @@ class Canvas {
         this.shapes.push(newShape);
         newShape.draw();
     }
-    
+
+    /*
+    Erases whats currently on the canvas
+    */
+    clearCanvas() {
+        this.shapes = [];
+        this.context.clearRect(0, 0, this.dimensions.width, this.dimensions.height)
+    }
 }
 
 export default Canvas;
