@@ -1,7 +1,7 @@
 import {
     context,
     getRandomColor
-} from './globals'
+} from '../globals'
 
 export default class Circle {
     constructor(x, y, radius, color) {

@@ -1,10 +1,9 @@
 import { 
     context,
     getRandomColor
-} from "./globals";
+} from "../globals";
 
 export default class Rectangle {
-
     constructor(x, y, width, height, color) {
         this.x = x;
         this.y = y;

@@ -1,6 +1,6 @@
 import "./styles.css";
-import Circle from "./Circle";
-import Rectangle from "./Rectangle";
+import Circle from "./shapes/Circle";
+import Rectangle from "./shapes/Rectangle";
 import {
     canvas,
 } from './globals'
