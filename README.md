@@ -26,8 +26,8 @@ node dist/bundle.js
 
 ## Project Outline:
 - [ ] Add shape column
-  - [ ] Has Add Circle button
-    - [ ] Adds a circle of set proportions at a random location within canvas
+  - [x] Has Add Circle button
+    - [x] Adds a circle of set proportions at a random location within canvas
   - [ ] Has Add Rectangle button
     - [ ] Adds a rectangle of set proportions at a random location within canvas
 - [ ] Canvas
