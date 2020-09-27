@@ -25,11 +25,11 @@ node dist/bundle.js
 ```
 
 ## Project Outline:
-- [ ] Add shape column
+- [ ] Add shape column (EXTRA: varies color based on predefined scheme)
   - [x] Has Add Circle button
     - [x] Adds a circle of set proportions at a random location within canvas
-  - [ ] Has Add Rectangle button
-    - [ ] Adds a rectangle of set proportions at a random location within canvas
+  - [x] Has Add Rectangle button
+    - [x] Adds a rectangle of set proportions at a random location within canvas
 - [ ] Canvas
   - [ ] Contains Shapes
     - [ ] Shapes can be selected

@@ -1,14 +1,13 @@
 import "./styles.css";
 import Circle from "./Circle";
+import Rectangle from "./Rectangle";
+
+import palettes from 'nice-color-palettes';
+const currPalette = palettes[Math.floor(Math.random() * (palettes.length - 1))]
+const getRandomColor = () => currPalette[Math.floor(Math.random() * (currPalette.length - 1))];
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext('2d');
-
-// context.fillStyle = 'rgb(200, 0, 0)';
-// context.fillRect(10, 10, 50, 50);
-
-// context.fillStyle = 'rgba(0, 0, 200, 0.5)';
-// context.fillRect(30, 30, 50, 50);
 
 const getRandomPoint = (...args) => {
     // Decide params based on arguments (for convenience)
@@ -26,9 +25,14 @@ let shapes = [];
 // Add functionality to CreateCircle
 let createCircleButton = document.getElementById("createCircle");
 createCircleButton.addEventListener("click", () => {
-    let circle = new Circle(context, getRandomPoint(), getRandomPoint(), 50);
+    let circle = new Circle(context, getRandomPoint(), getRandomPoint(), 50, getRandomColor());
     shapes.push(circle);
     circle.draw();
 });
 
-console.log("hello world!");
+let createRectangleButton = document.getElementById("createRectangle");
+createRectangleButton.addEventListener("click", () => {
+    let rectangle = new Rectangle(context, getRandomPoint(), getRandomPoint(), 100, 100, getRandomColor());
+    shapes.push(rectangle);
+    rectangle.draw();
+});
