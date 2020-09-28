@@ -37,6 +37,13 @@ class Canvas {
     newShape.draw();
   }
 
+  removeShape(shape) {
+    shape.removeEditor();
+    this.shapes = this.shapes.filter(currShape => currShape.id !== shape.id);
+    this.selectedShapes = this.selectedShapes.filter(currShape => currShape.id !== shape.id);
+    this.redrawCanvas();
+  }
+
   /*
     Generates a unique ID for a shape.
     returns: unique intiger
@@ -65,6 +72,7 @@ class Canvas {
   Selects a passed in shape and adds it to list of selected shapes
   */
   selectShape(shape) {
+    shape.addEditor();
     shape.selected = true;
     this.selectedShapes.push(shape);
   }

@@ -1,5 +1,5 @@
 import { context, getRandomColor } from "../globals";
-
+import { createEditor } from "../editorRow";
 export default class Circle {
   constructor(x, y, radius, color) {
     this.x = x;
@@ -31,5 +31,26 @@ export default class Circle {
     let xDiff = x - this.x;
     let yDiff = y - this.y;
     return Math.sqrt(xDiff ** 2 + yDiff ** 2) < this.radius;
+  }
+
+  addEditor() {
+    this.editor = createEditor(this, {
+      x: {
+        value: this.x,
+        type: "static",
+      },
+      y: {
+        value: this.y,
+        type: "static",
+      },
+      radius: {
+        value: this.radius,
+        type: "range",
+      },
+    });
+  }
+
+  removeEditor() {
+    this.editor.remove();
   }
 }
