@@ -62,11 +62,19 @@ class Canvas {
   }
 
   /*
-  Selects a passed in shape
+  Selects a passed in shape and adds it to list of selected shapes
   */
   selectShape(shape) {
     shape.selected = true;
     this.selectedShapes.push(shape);
+  }
+
+  /*
+  Deselects passed in shape and removes it from list of selected shapes
+  */
+  deselectShape(shape) {
+    shape.selected = false;
+    this.selectedShapes = this.selectedShapes.filter(selectedShapes => selectedShapes.id !== shape.id);
   }
 
   /*

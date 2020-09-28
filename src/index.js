@@ -11,6 +11,7 @@ import {
 } from "./page";
 
 let currHoveredShape = null;
+let shiftDown = false;
 
 canvasElement.addEventListener("mousemove", (event) => {
   const { shapes } = canvas;
@@ -45,15 +46,23 @@ canvasElement.addEventListener("mousemove", (event) => {
 
 canvasElement.addEventListener("click", () => {
   if(currHoveredShape) {
-    if(!currHoveredShape.selected) {
-      canvas.clearSelectedShapes();
+    let { selected } = currHoveredShape;
+    if(currHoveredShape.selected && shiftDown) canvas.deselectShape(currHoveredShape);
+    else if(!selected) {
+      if(!shiftDown) canvas.clearSelectedShapes();
       canvas.selectShape(currHoveredShape);
     }
-  } else {
-    canvas.clearSelectedShapes();
-  };
+  } else if(!shiftDown) canvas.clearSelectedShapes();
   canvas.redrawCanvas();
 });
+
+window.addEventListener("keydown", (event) => {
+  if(event.key.toLowerCase() === "shift") shiftDown = true;
+})
+
+window.addEventListener("keyup", (event) => {
+  if(event.key.toLowerCase() === "shift") shiftDown = false;
+})
 
 createCircleButton.addEventListener("click", () => {
   let circleLocation = canvas.getRandomPoint();
