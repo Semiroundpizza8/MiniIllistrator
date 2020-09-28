@@ -32,15 +32,16 @@ node dist/bundle.js
     - [x] Adds a rectangle of set proportions at a random location within canvas
 - [ ] Canvas
   - [ ] Contains Shapes
-    - [ ] Shapes react to hover over
-      - [ ] Hovering over a shape creates a transparent blue ring around it
+    - [x] Shapes react to hover over
+      - [x] Hovering over a shape creates a transparent blue ring around it
     - [ ] Shapes can be selected
-      - [ ] Clicking selects it, clicking again deselects it
+      - [x] Clicking selects it
+      - [x] Clicking another shape or outside of curr shape deselects it
       - [ ] Selecting renders options for it in editor section
       - [ ] Can hold shift to select multiple shapes
-    - [ ] Shape has outline
-      - [ ] On hover, blue and transparent outline
-      - [ ] On select, gold ring on edge of hover outline
+    - [x] Shape has outline
+      - [x] On hover, blue and transparent outline
+      - [x] On select, gold ring on edge of hover outline
 - [ ] Edit Sidebar
   - [ ] Contains shape name
   - [ ] Has delete button to remove from canvas

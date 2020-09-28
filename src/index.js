@@ -43,6 +43,18 @@ canvasElement.addEventListener("mousemove", (event) => {
   }
 });
 
+canvasElement.addEventListener("click", () => {
+  if(currHoveredShape) {
+    if(!currHoveredShape.selected) {
+      canvas.clearSelectedShapes();
+      canvas.selectShape(currHoveredShape);
+    }
+  } else {
+    canvas.clearSelectedShapes();
+  };
+  canvas.redrawCanvas();
+});
+
 createCircleButton.addEventListener("click", () => {
   let circleLocation = canvas.getRandomPoint();
   let circle = new Circle(circleLocation.x, circleLocation.y, 50);

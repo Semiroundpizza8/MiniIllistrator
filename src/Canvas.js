@@ -7,6 +7,7 @@ class Canvas {
       height: this.canvas.height,
     };
     this.shapes = [];
+    this.selectedShapes = [];
     this.shapeIdCount = 0;
   }
 
@@ -35,6 +36,7 @@ class Canvas {
     this.shapes.push(newShape);
     newShape.draw();
   }
+  
   /*
     Generates a unique ID for a shape.
     returns: unique intiger
@@ -50,12 +52,29 @@ class Canvas {
     this.context.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
     this.shapes.forEach((shape) => shape.draw());
   }
+
   /*
     Erases whats currently on the canvas
     */
   clearCanvas() {
     this.shapes = [];
     this.context.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+  }
+
+  /*
+  Selects a passed in shape
+  */
+  selectShape(shape) {
+    shape.selected = true;
+    this.selectedShapes.push(shape);
+  }
+
+  /*
+  Clears all currently selected shapes
+  */
+  clearSelectedShapes() {
+    this.selectedShapes.forEach(shape => shape.selected = false);
+    this.selectedShapes = [];
   }
 }
 

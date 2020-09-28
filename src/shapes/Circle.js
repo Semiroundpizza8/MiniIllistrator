@@ -7,6 +7,7 @@ export default class Circle {
     this.radius = radius;
     this.color = color || getRandomColor();
     this.hover = false;
+    this.selected = false;
   }
 
   draw() {
@@ -17,7 +18,7 @@ export default class Circle {
     context.arc(this.x, this.y, this.radius + 10, 0, 360);
     context.lineWidth = 8;
     if (this.hover) context.fill();
-    // if(selected === true) context.stroke();
+    if (this.selected === true) context.stroke();
 
     // drawShape
     context.fillStyle = this.color;
