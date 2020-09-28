@@ -9,11 +9,10 @@ export default class Circle {
         this.y = y;
         this.radius = radius;
         this.color = color || getRandomColor();
+        this.hover = false;
     }
 
     draw() {
-        let hover = true;
-        let selected = true;
 
         // Add Outline
         context.fillStyle = 'rgba(0, 0, 150, .5)';
@@ -21,13 +20,19 @@ export default class Circle {
         context.beginPath();
         context.arc(this.x, this.y, this.radius + 10, 0, 360);
         context.lineWidth = 8;
-        if(hover === true) context.fill();
-        if(selected === true) context.stroke();
+        if(this.hover) context.fill();
+        // if(selected === true) context.stroke();
 
         // drawShape
         context.fillStyle = this.color;
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, 360);
         context.fill();
+    }
+
+    isAtPoint(x, y) {
+        let xDiff = (x - this.x);
+        let yDiff = (y - this.y);
+        return Math.sqrt( (xDiff ** 2) + (yDiff ** 2)) < this.radius;
     }
 }
