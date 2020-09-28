@@ -36,7 +36,7 @@ class Canvas {
     this.shapes.push(newShape);
     newShape.draw();
   }
-  
+
   /*
     Generates a unique ID for a shape.
     returns: unique intiger
@@ -74,14 +74,16 @@ class Canvas {
   */
   deselectShape(shape) {
     shape.selected = false;
-    this.selectedShapes = this.selectedShapes.filter(selectedShapes => selectedShapes.id !== shape.id);
+    this.selectedShapes = this.selectedShapes.filter(
+      (selectedShapes) => selectedShapes.id !== shape.id
+    );
   }
 
   /*
   Clears all currently selected shapes
   */
   clearSelectedShapes() {
-    this.selectedShapes.forEach(shape => shape.selected = false);
+    this.selectedShapes.forEach((shape) => (shape.selected = false));
     this.selectedShapes = [];
   }
 }

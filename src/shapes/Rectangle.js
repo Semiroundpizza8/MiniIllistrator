@@ -38,5 +38,5 @@ export default class Rectangle {
       this.y <= y &&
       y <= this.y + this.height
     );
-  };
+  }
 }

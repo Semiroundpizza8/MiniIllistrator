@@ -45,24 +45,32 @@ canvasElement.addEventListener("mousemove", (event) => {
 });
 
 canvasElement.addEventListener("click", () => {
-  if(currHoveredShape) {
+  // If we're currently looking at a shape...
+  if (currHoveredShape) {
     let { selected } = currHoveredShape;
-    if(currHoveredShape.selected && shiftDown) canvas.deselectShape(currHoveredShape);
-    else if(!selected) {
-      if(!shiftDown) canvas.clearSelectedShapes();
+
+    // Deselect it if we're holding shift
+    if (currHoveredShape.selected && shiftDown)
+      canvas.deselectShape(currHoveredShape);
+    // Select it if it hasn't been selected yet
+    else if (!selected) {
+      if (!shiftDown) canvas.clearSelectedShapes();
       canvas.selectShape(currHoveredShape);
     }
-  } else if(!shiftDown) canvas.clearSelectedShapes();
+  }
+
+  // Prevents us from accidentally losing all currently selected shapes if we're holding shift
+  else if (!shiftDown) canvas.clearSelectedShapes();
   canvas.redrawCanvas();
 });
 
 window.addEventListener("keydown", (event) => {
-  if(event.key.toLowerCase() === "shift") shiftDown = true;
-})
+  if (event.key.toLowerCase() === "shift") shiftDown = true;
+});
 
 window.addEventListener("keyup", (event) => {
-  if(event.key.toLowerCase() === "shift") shiftDown = false;
-})
+  if (event.key.toLowerCase() === "shift") shiftDown = false;
+});
 
 createCircleButton.addEventListener("click", () => {
   let circleLocation = canvas.getRandomPoint();
