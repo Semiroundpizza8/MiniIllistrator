@@ -42,11 +42,7 @@ export default class Circle {
       y: {
         value: this.y,
         type: "static",
-      },
-      radius: {
-        value: this.radius,
-        type: "range",
-      },
+      }
     });
   }
 

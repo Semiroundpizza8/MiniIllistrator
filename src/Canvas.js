@@ -81,6 +81,7 @@ class Canvas {
   Deselects passed in shape and removes it from list of selected shapes
   */
   deselectShape(shape) {
+    shape.removeEditor();
     shape.selected = false;
     this.selectedShapes = this.selectedShapes.filter(
       (selectedShapes) => selectedShapes.id !== shape.id
@@ -91,8 +92,7 @@ class Canvas {
   Clears all currently selected shapes
   */
   clearSelectedShapes() {
-    this.selectedShapes.forEach((shape) => (shape.selected = false));
-    this.selectedShapes = [];
+    this.selectedShapes.forEach((shape) => (this.deselectShape(shape)));
   }
 }
 

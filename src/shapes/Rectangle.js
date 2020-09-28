@@ -1,5 +1,5 @@
 import { context, getRandomColor } from "../globals";
-
+import { createEditor } from '../editorRow';
 export default class Rectangle {
   constructor(x, y, width, height, color) {
     this.x = x;
@@ -38,5 +38,22 @@ export default class Rectangle {
       this.y <= y &&
       y <= this.y + this.height
     );
+  }
+
+  addEditor() {
+    this.editor = createEditor(this, {
+      x: {
+        value: this.x,
+        type: "static",
+      },
+      y: {
+        value: this.y,
+        type: "static",
+      }
+    });
+  }
+
+  removeEditor() {
+    this.editor.remove();
   }
 }

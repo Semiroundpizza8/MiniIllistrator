@@ -31,22 +31,23 @@ node dist/bundle.js
   - [x] Has Add Rectangle button
     - [x] Adds a rectangle of set proportions at a random location within canvas
 - [ ] Canvas
-  - [ ] Contains Shapes
+  - [x] Contains Shapes
     - [x] Shapes react to hover over
       - [x] Hovering over a shape creates a transparent blue ring around it
-    - [ ] Shapes can be selected
+    - [ ] Shapes can be dragged and dropped
+    - [x] Shapes can be selected
       - [x] Clicking selects it
       - [x] Clicking another shape or outside of curr shape deselects it
-      - [ ] Selecting renders options for it in editor section
-      - [ ] Can hold shift to select multiple shapes
+      - [x] Selecting renders options for it in editor section
+      - [x] Can hold shift to select multiple shapes
     - [x] Shape has outline
       - [x] On hover, blue and transparent outline
       - [x] On select, gold ring on edge of hover outline
 - [ ] Edit Sidebar
-  - [ ] Contains shape name
-  - [ ] Has delete button to remove from canvas
+  - [x] Contains shape name
+  - [x] Has delete button to remove from canvas
   - [ ] Has properties to manipulate shape
-    - [ ] ex: circle has radius (range input), color (html color input), center x, and center y
+    - [ ] ex: Circle has radius (range input), color (html color input), center x, and center y
     - [ ] ex: Rectangle has width (range), height (range), color (html color input), center x, and center y
 
 Notes:
