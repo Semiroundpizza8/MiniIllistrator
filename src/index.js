@@ -12,27 +12,34 @@ import {
 
 let currHoveredShape = null;
 let shiftDown = false;
+let mouseIsDown = false;
 
 canvasElement.addEventListener("mousemove", (event) => {
-  const { shapes } = canvas;
+  const { shapes, selectedShapes } = canvas;
   let inCircle = false;
 
-  for (var i = shapes.length - 1; i >= 0; i--) {
-    // Since we only care about the highest shape, start from the closest shape to user;
-    let shape = shapes[i];
-    // Check to see if we're currently over a shape
-    if (shape.isAtPoint(event.offsetX, event.offsetY)) {
-      inCircle = true;
+  if (mouseIsDown) { // Placed up here as opposed to in detector to allow us to move faster when dragging
+    selectedShapes.forEach((shape) => {
+      shape.move(event.movementX, event.movementY);
+    });
+  } else {
+    for (var i = shapes.length - 1; i >= 0; i--) {
+      // Since we only care about the highest shape, start from the closest shape to user;
+      let shape = shapes[i];
+      // Check to see if we're currently over a shape
+      if (shape.isAtPoint(event.offsetX, event.offsetY)) {
+        inCircle = true;
 
-      // If we're in the same shape as last time stop looking for one
-      if (shape.id === currHoveredShape?.id) break;
+        // If we're in the same shape as last time stop looking for one
+        if (shape.id === currHoveredShape?.id) break;
 
-      // Set the hover to the current shape
-      if (currHoveredShape) currHoveredShape.hover = false;
-      currHoveredShape = shape;
-      shape.hover = true;
-      canvas.redrawCanvas();
-      break;
+        // Set the hover to the current shape
+        if (currHoveredShape) currHoveredShape.hover = false;
+        currHoveredShape = shape;
+        shape.hover = true;
+        canvas.redrawCanvas();
+        break;
+      }
     }
   }
 
@@ -44,7 +51,9 @@ canvasElement.addEventListener("mousemove", (event) => {
   }
 });
 
-canvasElement.addEventListener("click", () => {
+canvasElement.addEventListener("mousedown", (event) => {
+  mouseIsDown = true;
+
   // If we're currently looking at a shape...
   if (currHoveredShape) {
     let { selected } = currHoveredShape;
@@ -62,6 +71,10 @@ canvasElement.addEventListener("click", () => {
   // Prevents us from accidentally losing all currently selected shapes if we're holding shift
   else if (!shiftDown) canvas.clearSelectedShapes();
   canvas.redrawCanvas();
+});
+
+canvasElement.addEventListener("mouseup", () => {
+  mouseIsDown = false;
 });
 
 window.addEventListener("keydown", (event) => {

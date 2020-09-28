@@ -1,4 +1,5 @@
 import { canvas } from './globals';
+import { propertyEditor } from './page';
 
 const createEditorTab = (shape, options) => {
   let newEditorTab = document.createElement("div");
@@ -68,6 +69,6 @@ const createOptionRow = (optionName, option) => {
 export const createEditor = (shape, options) => {
   //   <div id="circle1-Editor" class="editCell">
   let newEditorTab = createEditorTab(shape, options);
-  document.getElementById("propertyEditor").appendChild(newEditorTab);
+  propertyEditor.appendChild(newEditorTab);
   return newEditorTab;
 };

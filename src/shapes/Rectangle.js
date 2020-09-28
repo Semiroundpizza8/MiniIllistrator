@@ -1,4 +1,4 @@
-import { context, getRandomColor } from "../globals";
+import { canvas, context, getRandomColor } from "../globals";
 import { createEditor } from '../editorRow';
 export default class Rectangle {
   constructor(x, y, width, height, color) {
@@ -29,6 +29,12 @@ export default class Rectangle {
     context.beginPath();
     context.rect(this.x, this.y, this.width, this.height);
     context.fill();
+  }
+
+  move(xMovement, yMovement) {
+    this.x = this.x + xMovement;
+    this.y = this.y + yMovement;
+    canvas.redrawCanvas();
   }
 
   isAtPoint(x, y) {

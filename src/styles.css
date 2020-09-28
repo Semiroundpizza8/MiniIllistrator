@@ -45,6 +45,7 @@ canvas {
 .editHeader {
   display: flex;
   flex-flow: row;
+  background: lightgray;
 }
 
 .editHeaderTitle {

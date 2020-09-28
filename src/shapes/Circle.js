@@ -1,4 +1,4 @@
-import { context, getRandomColor } from "../globals";
+import { canvas, context, getRandomColor } from "../globals";
 import { createEditor } from "../editorRow";
 export default class Circle {
   constructor(x, y, radius, color) {
@@ -25,6 +25,12 @@ export default class Circle {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, 360);
     context.fill();
+  }
+
+  move(xMovement, yMovement) {
+    this.x = this.x + xMovement;
+    this.y = this.y + yMovement;
+    canvas.redrawCanvas();
   }
 
   isAtPoint(x, y) {

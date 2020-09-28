@@ -9,3 +9,6 @@ export const paletteColorNodes = document.getElementsByClassName(
 
 /* Canvas */
 export const canvasElement = document.getElementById("canvas");
+
+/* Property Editor */
+export const propertyEditor = document.getElementById("propertyEditor");
