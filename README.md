@@ -30,11 +30,11 @@ node dist/bundle.js
     - [x] Adds a circle of set proportions at a random location within canvas
   - [x] Has Add Rectangle button
     - [x] Adds a rectangle of set proportions at a random location within canvas
-- [ ] Canvas
+- [x] Canvas
   - [x] Contains Shapes
     - [x] Shapes react to hover over
       - [x] Hovering over a shape creates a transparent blue ring around it
-    - [ ] Shapes can be dragged and dropped
+    - [x] Shapes can be dragged and dropped
     - [x] Shapes can be selected
       - [x] Clicking selects it
       - [x] Clicking another shape or outside of curr shape deselects it

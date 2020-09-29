@@ -1,36 +1,29 @@
 import { canvas, context, getRandomColor } from "../globals";
 import { createEditor } from "../editorRow";
-export default class Circle {
+import Shape from './Shape';
+
+export default class Circle extends Shape {
   constructor(x, y, radius, color) {
-    this.x = x;
-    this.y = y;
+    super(x, y, color)
     this.radius = radius;
-    this.color = color || getRandomColor();
-    this.hover = false;
-    this.selected = false;
+    this.type = "Circle";
   }
 
   draw() {
     // Add Outline
     context.fillStyle = "rgba(0, 0, 150, .5)";
     context.strokeStyle = "rgba(255, 255, 0)";
+    context.lineWidth = 8;
     context.beginPath();
     context.arc(this.x, this.y, this.radius + 10, 0, 360);
-    context.lineWidth = 8;
     if (this.hover) context.fill();
-    if (this.selected === true) context.stroke();
+    if (this.selected) context.stroke();
 
     // drawShape
     context.fillStyle = this.color;
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, 360);
     context.fill();
-  }
-
-  move(xMovement, yMovement) {
-    this.x = this.x + xMovement;
-    this.y = this.y + yMovement;
-    canvas.redrawCanvas();
   }
 
   isAtPoint(x, y) {
@@ -50,9 +43,5 @@ export default class Circle {
         type: "static",
       }
     });
-  }
-
-  removeEditor() {
-    this.editor.remove();
   }
 }

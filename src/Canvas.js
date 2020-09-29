@@ -32,7 +32,7 @@ class Canvas {
     Adds a random shape to the canvas, adding it to our current shapes before visualizing it
     */
   addShape(newShape) {
-    newShape.id = this.generateShapeId();
+    newShape.id = this.generateShapeId(newShape.type);
     this.shapes.push(newShape);
     newShape.draw();
   }
@@ -48,8 +48,8 @@ class Canvas {
     Generates a unique ID for a shape.
     returns: unique intiger
     */
-  generateShapeId() {
-    return ++this.shapeIdCount;
+  generateShapeId(shapeType) {
+    return `${shapeType}-${++this.shapeIdCount}`;
   }
 
   /*

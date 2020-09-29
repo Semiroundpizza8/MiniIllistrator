@@ -5,6 +5,7 @@ h1 {
 
 #app {
   display: flex;
+  overflow: hidden;
 }
 
 #createShapeButtons {

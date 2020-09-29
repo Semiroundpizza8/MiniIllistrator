@@ -1,40 +1,29 @@
 import { canvas, context, getRandomColor } from "../globals";
 import { createEditor } from '../editorRow';
-export default class Rectangle {
+import Shape from './Shape';
+export default class Rectangle extends Shape {
   constructor(x, y, width, height, color) {
-    this.x = x;
-    this.y = y;
+    super(x, y, color);
     this.width = width;
     this.height = height;
-    this.color = color || getRandomColor();
-    this.hover = false;
-    this.selected = false;
+    this.type = "Rectangle";
   }
 
   draw() {
-    let hover = true;
-    let selected = true;
-
     // Add Outline
     context.fillStyle = "rgba(0, 0, 150, .5)";
     context.strokeStyle = "rgba(235, 235, 0)";
     context.lineWidth = 8;
     context.beginPath();
     context.rect(this.x - 10, this.y - 10, this.width + 20, this.height + 20);
-    if (this.hover === true) context.fill();
-    if (this.selected === true) context.stroke();
+    if (this.hover) context.fill();
+    if (this.selected) context.stroke();
 
     // Draw Shape
     context.fillStyle = this.color;
     context.beginPath();
     context.rect(this.x, this.y, this.width, this.height);
     context.fill();
-  }
-
-  move(xMovement, yMovement) {
-    this.x = this.x + xMovement;
-    this.y = this.y + yMovement;
-    canvas.redrawCanvas();
   }
 
   isAtPoint(x, y) {
@@ -57,9 +46,5 @@ export default class Rectangle {
         type: "static",
       }
     });
-  }
-
-  removeEditor() {
-    this.editor.remove();
   }
 }

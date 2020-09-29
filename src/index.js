@@ -1,7 +1,7 @@
 import "./styles.css";
 import Circle from "./shapes/Circle";
 import Rectangle from "./shapes/Rectangle";
-import { canvas, newPalette } from "./globals";
+import { canvas, getRandomColor, newPalette } from "./globals";
 import {
   createCircleButton,
   createRectangleButton,
@@ -87,17 +87,21 @@ window.addEventListener("keyup", (event) => {
 
 createCircleButton.addEventListener("click", () => {
   let circleLocation = canvas.getRandomPoint();
-  let circle = new Circle(circleLocation.x, circleLocation.y, 50);
+  let radius = 10 + (Math.random() * 40)
+  let circle = new Circle(circleLocation.x, circleLocation.y, radius, getRandomColor());
   canvas.addShape(circle);
 });
 
 createRectangleButton.addEventListener("click", () => {
   let rectangleLocation = canvas.getRandomPoint();
+  let width = 20 + (Math.random() * 80);
+  let height = 20 + (Math.random() * 80);
   let rectangle = new Rectangle(
     rectangleLocation.x,
     rectangleLocation.y,
-    100,
-    100
+    width,
+    height,
+    getRandomColor()
   );
   canvas.addShape(rectangle);
 });
