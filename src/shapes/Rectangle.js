@@ -1,4 +1,4 @@
-import { context } from "../globals";
+import { canvas, context } from "../globals";
 import Shape from "./Shape";
 
 export default class Rectangle extends Shape {
@@ -18,6 +18,24 @@ export default class Rectangle extends Shape {
         value: () => this.y,
         type: "static",
       },
+      {
+        name: "width",
+        value: () => this.width,
+        update: (newWidth) => {
+          this.width = newWidth
+          canvas.redrawCanvas();
+        },
+        type: "slider"
+      },
+      {
+        name: "height",
+        value: () => this.height,
+        update: (newHeight) => {
+          this.height = newHeight
+          canvas.redrawCanvas();
+        },
+        type: "slider"
+      }
     ];
   }
 

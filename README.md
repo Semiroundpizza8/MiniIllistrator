@@ -49,9 +49,9 @@ node dist/bundle.js
   - [ ] Has properties to manipulate shape
     - [ ] ex: Circle has radius (range input), color (html color input), center x, and center y
     - [ ] ex: Rectangle has width (range), height (range), color (html color input), center x, and center y
-    - [ ] Move changes reflected in sidebar
+    - [x] Move changes reflected in sidebar
     - [ ] Color change works and is reflected in sidebar
-    - [ ] Size changes work and are reflected in sidebar
+    - [x] Size changes work and are reflected in sidebar
 
 Notes:
 Figuring out the best way to handle mouseOver and onClick was a challenge, leaving me with multiple paths to take. From what I could gather, my options were (in order from simplest to most complex):

@@ -100,8 +100,8 @@ createCircleButton.addEventListener("click", () => {
 
 createRectangleButton.addEventListener("click", () => {
   let rectangleLocation = canvas.getRandomPoint();
-  let width = 20 + Math.random() * 80;
-  let height = 20 + Math.random() * 80;
+  let width = Math.floor(20 + Math.random() * 80);
+  let height = Math.floor(20 + Math.random() * 80);
   let rectangle = new Rectangle(
     rectangleLocation.x,
     rectangleLocation.y,

@@ -45,6 +45,12 @@ export default class Shape {
       let valueElement = $(`<p>${option.value()}</p>`);
       newOptionRow.append(nameElement, valueElement);
     }
+    else if(option.type === "slider") {
+      let nameElement = $(`<p>${option.name}</p>`);
+      let valueElement = $(`<input type="range" value=${option.value()} min="5" max="500"></input>`);
+      valueElement.on("input", event => option.update(+event.target.value));
+      newOptionRow.append(nameElement, valueElement);
+    }
 
     return newOptionRow;
   }
