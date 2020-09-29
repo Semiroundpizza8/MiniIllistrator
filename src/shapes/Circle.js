@@ -25,6 +25,15 @@ export default class Circle extends Shape {
           canvas.redrawCanvas();
         },
         type: "slider"
+      },
+      {
+        name: "color",
+        value: () => this.color,
+        update: (newColor) => {
+          this.color = newColor;
+          canvas.redrawCanvas();
+        },
+        type: "color"
       }
     ];
   }

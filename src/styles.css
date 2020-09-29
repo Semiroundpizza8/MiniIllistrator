@@ -14,11 +14,11 @@ h1 {
 }
 
 canvas {
-  border: 5px solid black;
+  border: .5em solid black;
 }
 
 #paletteOptions p {
-  margin-bottom: 0px;
+  margin-bottom: 0em;
 }
 
 #paletteColors {
@@ -28,7 +28,7 @@ canvas {
 
 #paletteColors span {
   flex: 1;
-  height: 30px;
+  height: 5em;
   background: gray;
 }
 
@@ -66,7 +66,8 @@ canvas {
 .editOptionRow {
   display: flex;
   flex-grow: 1;
-  text-align: center;
+  text-align: left;
+  margin-left: 5em;
 }
 
 .editOptionRow * {

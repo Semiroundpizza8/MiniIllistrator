@@ -39,19 +39,22 @@ export default class Shape {
 
   createOptionRow(option) {
     let newOptionRow = $(`<div class="editOptionRow"></div>`);
+    let nameElement = $(`<p>${option.name}</p>`);
+    let valueElement;
 
     if (option.type === "static") {
-      let nameElement = $(`<p>${option.name}</p>`);
-      let valueElement = $(`<p>${option.value()}</p>`);
-      newOptionRow.append(nameElement, valueElement);
+      valueElement = $(`<p>${option.value()}</p>`);
     }
     else if(option.type === "slider") {
-      let nameElement = $(`<p>${option.name}</p>`);
-      let valueElement = $(`<input type="range" value=${option.value()} min="5" max="500"></input>`);
+      valueElement = $(`<input type="range" value=${option.value()} min="5" max="500"></input>`);
       valueElement.on("input", event => option.update(+event.target.value));
-      newOptionRow.append(nameElement, valueElement);
     }
-
+    else if(option.type === "color") {
+      valueElement = $(`<input type="color" value=${option.value()}>`)
+      valueElement.on("input", event => option.update(event.target.value));
+    }
+    newOptionRow.append(nameElement, valueElement);
+    
     return newOptionRow;
   }
 

@@ -43,14 +43,14 @@ node dist/bundle.js
     - [x] Shape has outline
       - [x] On hover, blue and transparent outline
       - [x] On select, gold ring on edge of hover outline
-- [ ] Edit Sidebar
+- [x] Edit Sidebar
   - [x] Contains shape name
   - [x] Has delete button to remove from canvas
-  - [ ] Has properties to manipulate shape
-    - [ ] ex: Circle has radius (range input), color (html color input), center x, and center y
-    - [ ] ex: Rectangle has width (range), height (range), color (html color input), center x, and center y
+  - [x] Has properties to manipulate shape
+    - [x] ex: Circle has radius (range input), color (html color input), center x, and center y
+    - [x] ex: Rectangle has width (range), height (range), color (html color input), center x, and center y
     - [x] Move changes reflected in sidebar
-    - [ ] Color change works and is reflected in sidebar
+    - [x] Color change works and is reflected in sidebar
     - [x] Size changes work and are reflected in sidebar
 
 Notes:
