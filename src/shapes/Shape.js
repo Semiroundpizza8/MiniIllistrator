@@ -1,5 +1,8 @@
+import $ from "jquery";
+
 import { canvas } from "../globals";
 import { propertyEditor } from "../page";
+
 
 export default class Shape {
   constructor(x, y, color) {

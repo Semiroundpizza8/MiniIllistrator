@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 /* Add Shape Column */
 export const createRectangleButton = $("#createRectangle")[0];
 export const createCircleButton = $("#createCircle")[0];
