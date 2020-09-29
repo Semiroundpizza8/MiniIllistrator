@@ -28,6 +28,14 @@ export default class Shape {
         </div>
       </div>
     `).appendTo("#propertyEditor");
+    this.editor.on("mouseenter", () => {
+      this.hover = true
+      canvas.redrawCanvas();
+    });
+    this.editor.on("mouseleave", () => {
+      this.hover = false
+      canvas.redrawCanvas();
+    });
 
     // Add Delete Button
     $(`<button class="editHeaderButton">Delete Shape</button>`)

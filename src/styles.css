@@ -1,11 +1,10 @@
-h1 {
-  color: white;
-  background-color: black;
+html, body{
+  overflow: hidden;
 }
 
 #app {
   display: flex;
-  overflow: hidden;
+  align-items: flex-start;
 }
 
 #createShapeButtons {
@@ -34,6 +33,8 @@ canvas {
 
 #propertyEditor {
   flex-grow: 1;
+  max-height: 100vh;
+  overflow: auto;
   display: flex;
   flex-direction: column;
 }
