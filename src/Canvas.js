@@ -39,8 +39,10 @@ class Canvas {
 
   removeShape(shape) {
     shape.removeEditor();
-    this.shapes = this.shapes.filter(currShape => currShape.id !== shape.id);
-    this.selectedShapes = this.selectedShapes.filter(currShape => currShape.id !== shape.id);
+    this.shapes = this.shapes.filter((currShape) => currShape.id !== shape.id);
+    this.selectedShapes = this.selectedShapes.filter(
+      (currShape) => currShape.id !== shape.id
+    );
     this.redrawCanvas();
   }
 
@@ -92,7 +94,7 @@ class Canvas {
   Clears all currently selected shapes
   */
   clearSelectedShapes() {
-    this.selectedShapes.forEach((shape) => (this.deselectShape(shape)));
+    this.selectedShapes.forEach((shape) => this.deselectShape(shape));
   }
 }
 

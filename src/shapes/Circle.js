@@ -1,12 +1,23 @@
-import { canvas, context, getRandomColor } from "../globals";
-import { createEditor } from "../editorRow";
-import Shape from './Shape';
+import { context } from "../globals";
+import Shape from "./Shape";
 
 export default class Circle extends Shape {
   constructor(x, y, radius, color) {
-    super(x, y, color)
+    super(x, y, color);
     this.radius = radius;
     this.type = "Circle";
+    this.editorOptions = [
+      {
+        name: "x location",
+        value: () => this.x,
+        type: "static",
+      },
+      {
+        name: "y location",
+        value: () => this.y,
+        type: "static",
+      },
+    ];
   }
 
   draw() {
@@ -30,18 +41,5 @@ export default class Circle extends Shape {
     let xDiff = x - this.x;
     let yDiff = y - this.y;
     return Math.sqrt(xDiff ** 2 + yDiff ** 2) < this.radius;
-  }
-
-  addEditor() {
-    this.editor = createEditor(this, {
-      x: {
-        value: this.x,
-        type: "static",
-      },
-      y: {
-        value: this.y,
-        type: "static",
-      }
-    });
   }
 }

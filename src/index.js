@@ -18,7 +18,8 @@ canvasElement.addEventListener("mousemove", (event) => {
   const { shapes, selectedShapes } = canvas;
   let inCircle = false;
 
-  if (mouseIsDown) { // Placed up here as opposed to in detector to allow us to move faster when dragging
+  if (mouseIsDown) {
+    // Placed up here as opposed to in detector to allow us to move faster when dragging
     selectedShapes.forEach((shape) => {
       shape.move(event.movementX, event.movementY);
     });
@@ -87,15 +88,20 @@ window.addEventListener("keyup", (event) => {
 
 createCircleButton.addEventListener("click", () => {
   let circleLocation = canvas.getRandomPoint();
-  let radius = 10 + (Math.random() * 40)
-  let circle = new Circle(circleLocation.x, circleLocation.y, radius, getRandomColor());
+  let radius = 10 + Math.random() * 40;
+  let circle = new Circle(
+    circleLocation.x,
+    circleLocation.y,
+    radius,
+    getRandomColor()
+  );
   canvas.addShape(circle);
 });
 
 createRectangleButton.addEventListener("click", () => {
   let rectangleLocation = canvas.getRandomPoint();
-  let width = 20 + (Math.random() * 80);
-  let height = 20 + (Math.random() * 80);
+  let width = 20 + Math.random() * 80;
+  let height = 20 + Math.random() * 80;
   let rectangle = new Rectangle(
     rectangleLocation.x,
     rectangleLocation.y,
