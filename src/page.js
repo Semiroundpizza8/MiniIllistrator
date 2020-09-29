@@ -3,6 +3,7 @@ import $ from "jquery";
 /* Add Shape Column */
 export const createRectangleButton = $("#createRectangle")[0];
 export const clearBackgroundButton = $("#clearBackground")[0];
+export const splatterShapesButton = $("#splatterShapes")[0];
 export const createCircleButton = $("#createCircle")[0];
 export const clearCanvasButton = $("#clearCanvas")[0];
 export const swapPaletteButton = $("#swapPalette")[0];

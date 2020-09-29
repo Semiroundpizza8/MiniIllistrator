@@ -5,6 +5,7 @@ import { canvas, getRandomColor, newPalette } from "./globals";
 import {
   createRectangleButton,
   clearBackgroundButton,
+  splatterShapesButton,
   createCircleButton,
   clearCanvasButton,
   swapPaletteButton,
@@ -91,7 +92,8 @@ window.addEventListener("keyup", (event) => {
   if (event.key.toLowerCase() === "shift") shiftDown = false;
 });
 
-createCircleButton.addEventListener("click", () => {
+
+const drawRandomCircle = () => {
   // Gather random data for creating a circle
   let circleLocation = canvas.getRandomPoint();
   let radius = 10 + Math.random() * 40;
@@ -100,9 +102,9 @@ createCircleButton.addEventListener("click", () => {
   // Create the circle
   let circle = new Circle(circleLocation.x, circleLocation.y, radius, color);
   canvas.addShape(circle);
-});
+}
 
-createRectangleButton.addEventListener("click", () => {
+const drawRandomRectangle = () => {
   // Gather random data for creating a rectangle
   let rectangleLocation = canvas.getRandomPoint();
   let width = Math.floor(20 + Math.random() * 80);
@@ -122,7 +124,18 @@ createRectangleButton.addEventListener("click", () => {
     color
   );
   canvas.addShape(rectangle);
-});
+}
+
+createCircleButton.addEventListener("click", drawRandomCircle);
+createRectangleButton.addEventListener("click", drawRandomRectangle);
+splatterShapesButton.addEventListener("click", () => {
+  let shapesToGenerate = 50;
+  for(var i=0; i<shapesToGenerate; i++) {
+    let coinFlip = Math.random() > .5;
+    if(coinFlip) drawRandomCircle();
+    else drawRandomRectangle();
+  }
+})
 
 clearBackgroundButton.addEventListener("click", () =>
   canvas.removeBackground()
