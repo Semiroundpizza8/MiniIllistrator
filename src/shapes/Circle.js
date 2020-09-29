@@ -1,4 +1,4 @@
-import { context } from "../globals";
+import { canvas ,context } from "../globals";
 import Shape from "./Shape";
 
 export default class Circle extends Shape {
@@ -17,6 +17,15 @@ export default class Circle extends Shape {
         value: () => this.y,
         type: "static",
       },
+      {
+        name: "radius",
+        value: () => this.radius,
+        update: (newRadius) => {
+          this.radius = newRadius
+          canvas.redrawCanvas();
+        },
+        type: "slider"
+      }
     ];
   }
 
