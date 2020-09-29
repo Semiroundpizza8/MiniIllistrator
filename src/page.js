@@ -1,14 +1,12 @@
 /* Add Shape Column */
-export const createRectangleButton = document.getElementById("createRectangle");
-export const createCircleButton = document.getElementById("createCircle");
-export const clearCanvasButton = document.getElementById("clearCanvas");
-export const swapPaletteButton = document.getElementById("swapPalette");
-export const paletteColorNodes = document.getElementsByClassName(
-  "paletteColor"
-);
+export const createRectangleButton = $("#createRectangle")[0];
+export const createCircleButton = $("#createCircle")[0];
+export const clearCanvasButton = $("#clearCanvas")[0];
+export const swapPaletteButton = $("#swapPalette")[0];
+export const paletteColorNodes = $(".paletteColor");
 
 /* Canvas */
-export const canvasElement = document.getElementById("canvas");
+export const canvasElement = $("#canvas")[0];
 
 /* Property Editor */
-export const propertyEditor = document.getElementById("propertyEditor");
+export const propertyEditor = $("#propertyEditor")[0];

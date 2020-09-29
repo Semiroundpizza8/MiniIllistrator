@@ -22,19 +22,21 @@ export default class Rectangle extends Shape {
         name: "width",
         value: () => this.width,
         update: (newWidth) => {
-          this.width = newWidth
+          this.x = this.x + (this.width - newWidth) / 2;
+          this.width = newWidth;
           canvas.redrawCanvas();
         },
-        type: "slider"
+        type: "slider",
       },
       {
         name: "height",
         value: () => this.height,
         update: (newHeight) => {
-          this.height = newHeight
+          this.y = this.y + (this.height - newHeight) / 2;
+          this.height = newHeight;
           canvas.redrawCanvas();
         },
-        type: "slider"
+        type: "slider",
       },
       {
         name: "color",
@@ -43,12 +45,15 @@ export default class Rectangle extends Shape {
           this.color = newColor;
           canvas.redrawCanvas();
         },
-        type: "color"
-      }
+        type: "color",
+      },
     ];
   }
 
-  draw() {
+  /*
+  Draw a halo to surround / put emphasis on the rectangle
+  */
+  drawOutline() {
     // Add Outline
     context.fillStyle = "rgba(0, 0, 150, .5)";
     context.strokeStyle = "rgba(235, 235, 0)";
@@ -57,7 +62,12 @@ export default class Rectangle extends Shape {
     context.rect(this.x - 10, this.y - 10, this.width + 20, this.height + 20);
     if (this.hover) context.fill();
     if (this.selected) context.stroke();
+  }
 
+  /*
+  Draw the rectangle onto the canvas
+  */
+  drawShape() {
     // Draw Shape
     context.fillStyle = this.color;
     context.beginPath();
@@ -65,6 +75,17 @@ export default class Rectangle extends Shape {
     context.fill();
   }
 
+  /*
+  Calls functions needed to visualize the shape and its state onto the canvas
+  */
+  draw() {
+    if (this.hover || this.selected) this.drawOutline();
+    this.drawShape();
+  }
+
+  /*
+  Detect if a point on the canvas is within the rectangle
+  */
   isAtPoint(x, y) {
     return (
       this.x <= x &&
