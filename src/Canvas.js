@@ -9,6 +9,7 @@ class Canvas {
     this.shapes = [];
     this.selectedShapes = [];
     this.shapeIdCount = 0;
+    this.backgroundColor = null;
   }
 
   /*
@@ -26,6 +27,22 @@ class Canvas {
       x: randomX,
       y: randomY,
     };
+  }
+
+  /*
+  Changes the background color the canvas to the passed in color
+  */
+  changeBackground(color) {
+    this.backgroundColor = color;
+    this.redrawCanvas();
+  }
+
+  /*
+  Sets the background of a canvas to null, allowing for it to be clear
+  */
+  removeBackground() {
+    this.backgroundColor = null;
+    this.redrawCanvas();
   }
 
   /*
@@ -58,7 +75,22 @@ class Canvas {
     Clears canvas and redraws every element
     */
   redrawCanvas() {
-    this.context.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+    if (this.backgroundColor) {
+      this.context.fillStyle = this.backgroundColor;
+      this.context.fillRect(
+        0,
+        0,
+        this.dimensions.width,
+        this.dimensions.height
+      );
+    } else
+      this.context.clearRect(
+        0,
+        0,
+        this.dimensions.width,
+        this.dimensions.height
+      );
+
     this.shapes.forEach((shape) => shape.draw());
   }
 

@@ -3,8 +3,9 @@ import Circle from "./shapes/Circle";
 import Rectangle from "./shapes/Rectangle";
 import { canvas, getRandomColor, newPalette } from "./globals";
 import {
-  createCircleButton,
   createRectangleButton,
+  clearBackgroundButton,
+  createCircleButton,
   clearCanvasButton,
   swapPaletteButton,
   canvasElement,
@@ -123,5 +124,8 @@ createRectangleButton.addEventListener("click", () => {
   canvas.addShape(rectangle);
 });
 
+clearBackgroundButton.addEventListener("click", () =>
+  canvas.removeBackground()
+);
 clearCanvasButton.addEventListener("click", () => canvas.clearCanvas());
 swapPaletteButton.addEventListener("click", () => newPalette());
