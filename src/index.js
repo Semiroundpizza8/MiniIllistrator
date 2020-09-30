@@ -92,7 +92,6 @@ window.addEventListener("keyup", (event) => {
   if (event.key.toLowerCase() === "shift") shiftDown = false;
 });
 
-
 const drawRandomCircle = () => {
   // Gather random data for creating a circle
   let circleLocation = canvas.getRandomPoint();
@@ -102,7 +101,7 @@ const drawRandomCircle = () => {
   // Create the circle
   let circle = new Circle(circleLocation.x, circleLocation.y, radius, color);
   canvas.addShape(circle);
-}
+};
 
 const drawRandomRectangle = () => {
   // Gather random data for creating a rectangle
@@ -124,21 +123,30 @@ const drawRandomRectangle = () => {
     color
   );
   canvas.addShape(rectangle);
-}
+};
 
 createCircleButton.addEventListener("click", drawRandomCircle);
 createRectangleButton.addEventListener("click", drawRandomRectangle);
 splatterShapesButton.addEventListener("click", () => {
   let shapesToGenerate = 50;
-  for(var i=0; i<shapesToGenerate; i++) {
-    let coinFlip = Math.random() > .5;
-    if(coinFlip) drawRandomCircle();
+  for (var i = 0; i < shapesToGenerate; i++) {
+    let coinFlip = Math.random() > 0.5;
+    if (coinFlip) drawRandomCircle();
     else drawRandomRectangle();
   }
-})
+});
 
 clearBackgroundButton.addEventListener("click", () =>
   canvas.removeBackground()
 );
 clearCanvasButton.addEventListener("click", () => canvas.clearCanvas());
 swapPaletteButton.addEventListener("click", () => newPalette());
+
+document.getElementById("download").addEventListener("click", () => {
+  var download = document.getElementById("download");
+  var image = document
+    .getElementById("canvas")
+    .toDataURL("image/png")
+    .replace("image/png", "image/octet-stream");
+  download.setAttribute("href", image);
+});
