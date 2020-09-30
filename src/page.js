@@ -7,7 +7,7 @@ export const splatterShapesButton = $("#splatterShapes")[0];
 export const createCircleButton = $("#createCircle")[0];
 export const clearCanvasButton = $("#clearCanvas")[0];
 export const swapPaletteButton = $("#swapPalette")[0];
-export const paletteColors = $("#paletteColors")[0];
+export const paletteColors = $("#paletteColors").first();
 
 /* Canvas */
 export const canvasElement = $("#canvas")[0];

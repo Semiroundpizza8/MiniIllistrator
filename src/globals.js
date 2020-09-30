@@ -13,6 +13,7 @@ export let palette = pullRandom(palettes);
 export const getRandomColor = () => pullRandom(palette);
 export const newPalette = () => {
   palette = pullRandom(palettes);
+  paletteColors.empty();
   for (let i = 0; i < palette.length; i++) {
     $('<span class="paletteColor"></span>')
       .on("click", () => canvas.changeBackground(palette[i]))

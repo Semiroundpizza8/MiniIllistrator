@@ -6,14 +6,12 @@ body {
 #app {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 #createShapeButtons {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
 canvas {
