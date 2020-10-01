@@ -22,7 +22,6 @@ export default class Rectangle extends Shape {
         name: "width",
         value: () => this.width,
         update: (newWidth) => {
-          this.x = this.x + (this.width - newWidth) / 2;
           this.width = newWidth;
           canvas.redrawCanvas();
         },
@@ -32,7 +31,6 @@ export default class Rectangle extends Shape {
         name: "height",
         value: () => this.height,
         update: (newHeight) => {
-          this.y = this.y + (this.height - newHeight) / 2;
           this.height = newHeight;
           canvas.redrawCanvas();
         },
@@ -51,6 +49,16 @@ export default class Rectangle extends Shape {
   }
 
   /*
+  Allows us to use the top left corner of our rect as a starting point for canvas' draw options
+  */ 
+  get adjustedX () {
+    return this.x - (this.width / 2);
+  }
+  get adjustedY () {
+    return this.y - (this.height / 2);
+  }
+
+  /*
   Draw a halo to surround / put emphasis on the rectangle
   */
   drawOutline() {
@@ -59,7 +67,7 @@ export default class Rectangle extends Shape {
     context.strokeStyle = "rgba(235, 235, 0)";
     context.lineWidth = 8;
     context.beginPath();
-    context.rect(this.x - 10, this.y - 10, this.width + 20, this.height + 20);
+    context.rect(this.adjustedX - 10, this.adjustedY - 10, this.width + 20, this.height + 20);
     if (this.hover) context.fill();
     if (this.selected) context.stroke();
   }
@@ -71,7 +79,7 @@ export default class Rectangle extends Shape {
     // Draw Shape
     context.fillStyle = this.color;
     context.beginPath();
-    context.rect(this.x, this.y, this.width, this.height);
+    context.rect(this.adjustedX, this.adjustedY, this.width, this.height);
     context.fill();
   }
 
@@ -87,11 +95,12 @@ export default class Rectangle extends Shape {
   Detect if a point on the canvas is within the rectangle
   */
   isAtPoint(x, y) {
+    
     return (
-      this.x <= x &&
-      x <= this.x + this.width &&
-      this.y <= y &&
-      y <= this.y + this.height
+      this.adjustedX <= x &&
+      x <= this.adjustedX + this.width &&
+      this.adjustedY <= y &&
+      y <= this.adjustedY + this.height
     );
   }
 }
