@@ -1,16 +1,16 @@
 import $ from "jquery";
 
 /* Add Shape Column */
-export const createRectangleButton = $("#createRectangle")[0];
-export const clearBackgroundButton = $("#clearBackground")[0];
-export const splatterShapesButton = $("#splatterShapes")[0];
-export const createCircleButton = $("#createCircle")[0];
-export const clearCanvasButton = $("#clearCanvas")[0];
-export const swapPaletteButton = $("#swapPalette")[0];
+export const createRectangleButton = $("#createRectangle").first();
+export const clearBackgroundButton = $("#clearBackground").first();
+export const splatterShapesButton = $("#splatterShapes").first();
+export const createCircleButton = $("#createCircle").first();
+export const clearCanvasButton = $("#clearCanvas").first();
+export const swapPaletteButton = $("#swapPalette").first();
 export const paletteColors = $("#paletteColors").first();
 
 /* Canvas */
-export const canvasElement = $("#canvas")[0];
+export const canvasElement = $("#canvas").get(0);
 
 /* Property Editor */
-export const propertyEditor = $("#propertyEditor")[0];
+export const propertyEditor = $("#propertyEditor").first();

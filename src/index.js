@@ -126,9 +126,9 @@ const drawRandomRectangle = () => {
   canvas.addShape(rectangle);
 }
 
-createCircleButton.addEventListener("click", drawRandomCircle);
-createRectangleButton.addEventListener("click", drawRandomRectangle);
-splatterShapesButton.addEventListener("click", () => {
+createCircleButton.on("click", drawRandomCircle);
+createRectangleButton.on("click", drawRandomRectangle);
+splatterShapesButton.on("click", () => {
   let shapesToGenerate = 50;
   for(var i=0; i<shapesToGenerate; i++) {
     let coinFlip = Math.random() > .5;
@@ -137,8 +137,8 @@ splatterShapesButton.addEventListener("click", () => {
   }
 })
 
-clearBackgroundButton.addEventListener("click", () =>
+clearBackgroundButton.on("click", () =>
   canvas.removeBackground()
 );
-clearCanvasButton.addEventListener("click", () => canvas.clearCanvas());
-swapPaletteButton.addEventListener("click", () => newPalette());
+clearCanvasButton.on("click", () => canvas.clearCanvas());
+swapPaletteButton.on("click", () => newPalette());
