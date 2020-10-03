@@ -10,6 +10,7 @@ import {
   clearCanvasButton,
   swapPaletteButton,
   canvasElement,
+  downloadButton
 } from "./page";
 
 let currHoveredShape = null;
@@ -141,12 +142,4 @@ clearBackgroundButton.on("click", () =>
 );
 clearCanvasButton.on("click", () => canvas.clearCanvas());
 swapPaletteButton.on("click", () => newPalette());
-
-document.getElementById("download").addEventListener("click", () => {
-  var download = document.getElementById("download");
-  var image = document
-    .getElementById("canvas")
-    .toDataURL("image/png")
-    .replace("image/png", "image/octet-stream");
-  download.setAttribute("href", image);
-});
+downloadButton.on("click", (e) => canvas.downloadCanvas(e.currentTarget, "CanvasImage"));

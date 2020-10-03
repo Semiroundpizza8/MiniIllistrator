@@ -1,3 +1,5 @@
+import { canvasElement } from "./page";
+
 class Canvas {
   constructor(canvasEle) {
     this.canvas = canvasEle;
@@ -127,6 +129,17 @@ class Canvas {
   */
   clearSelectedShapes() {
     this.selectedShapes.forEach((shape) => this.deselectShape(shape));
+  }
+
+  /*
+  Downloads the canvas element using the 
+  */
+  downloadCanvas(downloadButton, fileName) {
+      var imageData = canvasElement
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      downloadButton.setAttribute("download", `${fileName}.png`);
+      downloadButton.setAttribute("href", imageData);
   }
 }
 
